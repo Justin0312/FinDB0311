@@ -1,0 +1,27 @@
+---
+title: "Untitled1"
+author: "Justin Hu"
+date: "2019年3月11日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 開啟ETF4_2000_2018_d.txt，並且把第一欄設置為開頭，用UTF-8顯示
+
+```{r}
+rm(list=ls())
+etf4<-read.table("ETF4_2000_2018_d.txt", header = T, fileEncoding = "UTF-8-BOM")
+etf4
+tail(etf4,10)
+```
+
+#開啟ETF4_2000_2018_d.csv，並且用big5，把標題分別改成id、date、price
+
+```{r}
+etf4.csv<-read.csv("ETF4_2000_2018_d.csv", fileEncoding='big5', 
+                   colClasses=c("證券代碼"="character",'id', 'date', 'price'))
+head(etf4)
+```
